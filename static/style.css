@@ -1,0 +1,790 @@
+/* style.css - 完整版 */
+/* 包含所有页面样式，带有响应式设计和视图页面优化 */
+
+/* ===== 基础变量 ===== */
+:root {
+    --base-color: #2b5ff3;       /* 主蓝色 */
+    --accent-color: #fd9145;     /* 强调橘色 */
+    --dark-gray: #121212;        /* 深灰背景 */
+    --medium-gray: #2a2a2a;      /* 中等灰 */
+    --light-gray: #6c6c6c;       /* 浅灰文字 */
+    --white: #e0e0e0;            /* 主要文字 */
+    --error-color: #ff5252;       /* 错误红色 */
+    --success-color: #4caf50;     /* 成功绿色 */
+}
+
+/* ===== 通用样式 ===== */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro", "Segoe UI", Roboto, Arial, sans-serif;
+    background: var(--dark-gray);
+    color: var(--white);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+button {
+    background: var(--base-color);
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 20px;
+    margin-left: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+button:hover {
+    background: #3a6af5;
+    transform: scale(1.05);
+}
+
+/* ===== 导航栏 ===== */
+.navbar {
+    background: rgba(30, 30, 30, 0.95);
+    backdrop-filter: blur(12px);
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-title {
+    font-size: 24px;
+    font-weight: 600;
+    color: white;
+    text-decoration: none;
+    transition: opacity 0.3s;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-link {
+    color: var(--white);
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: all 0.2s;
+}
+
+.nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.nav-title:hover {
+    opacity: 0.7;
+}
+
+/* ===== 搜索表单 ===== */
+#search-form {
+    display: flex;
+    position: relative;
+}
+
+#search-input {
+    background: rgba(255, 255, 255, 0.15);
+    border: none;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 20px;
+    font-size: 16px;
+    width: 250px;
+    transition: background 0.3s;
+}
+
+#search-input:focus {
+    outline: none;
+    background: rgba(255, 255, 255, 0.25);
+}
+
+/* ===== 首页样式 ===== */
+/* 英雄区域 */
+.hero-section {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 40px 20px;
+    background: linear-gradient(to right, rgba(43, 95, 243, 0.2), rgba(43, 95, 243, 0.05));
+    border-radius: 15px;
+}
+
+.hero-section h1 {
+    font-size: 42px;
+    margin-bottom: 15px;
+    color: white;
+}
+
+.hero-section p {
+    font-size: 18px;
+    max-width: 700px;
+    margin: 0 auto 20px;
+    color: #bdbdbd;
+}
+
+/* 热门航班 */
+.featured-title {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 30px;
+}
+
+.flights-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+    padding: 20px 0;
+}
+
+/* 添加到style.css文件末尾 */
+
+/* 优化航班卡片样式 */
+.flight-card {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.flight-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.flight-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.flight-card-image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.flight-card:hover .flight-card-image {
+    transform: scale(1.05);
+}
+
+.flight-info {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: space-between;
+}
+
+.flight-info h3 {
+    margin-top: 0;
+    font-size: 20px;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.flight-route {
+    font-size: 18px;
+    color: var(--white);
+    margin: 8px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(43, 95, 243, 0.15);
+    padding: 8px 12px;
+    border-radius: 10px;
+    font-weight: 500;
+}
+
+.price-tag {
+    color: var(--accent-color);
+    font-weight: bold;
+    font-size: 24px;
+    margin-top: 15px;
+    text-align: center;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.flight-meta {
+    display: flex;
+    justify-content: space-between;
+    color: #999;
+    font-size: 13px;
+    margin-top: 15px;
+}
+
+/* ===== 搜索结果页面 ===== */
+.search-results-container {
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+}
+
+.search-results {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.search-results-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.search-count {
+    color: #999;
+}
+
+.search-item {
+    display: flex;
+    background: rgba(255, 255, 255, 0.08);
+    padding: 15px;
+    border-radius: 10px;
+    transition: 0.3s;
+    text-decoration: none;
+    color: var(--white);
+}
+
+.search-item:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.search-image-container {
+    flex-shrink: 0;
+    width: 140px;
+    height: 140px;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-right: 20px;
+}
+
+.search-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s;
+}
+
+.search-item:hover .search-image {
+    transform: scale(1.05);
+}
+
+.search-info {
+    flex: 1;
+}
+
+.search-info h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.search-info p {
+    margin: 5px 0;
+    color: #b0b0b0;
+}
+
+.highlight {
+    background-color: rgba(253, 145, 69, 0.3);
+    color: var(--accent-color);
+    padding: 0 3px;
+    border-radius: 3px;
+}
+
+/* ===== 视图页面优化 ===== */
+.flight-detail {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    background: rgba(255, 255, 255, 0.08);
+    padding: 30px;
+    border-radius: 15px;
+    max-width: 900px;
+    margin: auto;
+}
+
+/* 页面标题部分 */
+.flight-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+}
+
+.flight-title {
+    flex: 1;
+}
+
+.flight-title h1 {
+    margin-top: 0;
+    color: white;
+    font-size: 32px;
+    margin-bottom: 5px;
+}
+
+.flight-year {
+    color: var(--light-gray);
+    margin: 0;
+}
+
+.flight-actions {
+    display: flex;
+    gap: 10px;
+}
+
+/* 内容布局 */
+.flight-content {
+    display: flex;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+/* 图片容器新样式 */
+.flight-image-container {
+    flex: 0 0 480px;             /* 固定宽度 */
+    height: 320px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s;
+}
+
+.flight-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.flight-image-container:hover img {
+    transform: scale(1.05);
+}
+
+/* 信息区域 */
+.flight-info-detail {
+    flex: 1;
+    min-width: 0;  /* 防止内容溢出 */
+}
+
+.flight-image-fixed {
+    max-width: 100%;  /* ensures not exceeding parent container */
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+/* 编辑按钮增强 */
+.btn-edit {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(43, 95, 243, 0.15);
+    color: var(--base-color) !important;
+    border: 2px solid var(--base-color);
+    padding: 10px 25px;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    text-decoration: none;
+}
+
+.btn-edit::before {
+    content: "✏️";
+    font-size: 18px;
+}
+
+.btn-edit:hover {
+    background: rgba(43, 95, 243, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(43, 95, 243, 0.2);
+}
+
+/* 详情组 */
+.detail-group {
+    margin-bottom: 25px;
+}
+
+.detail-group h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: var(--accent-color);
+    font-size: 18px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.detail-item {
+    margin-bottom: 10px;
+    display: flex;
+}
+
+.detail-label {
+    width: 120px;
+    font-weight: 500;
+    color: var(--light-gray);
+}
+
+.detail-value {
+    flex: 1;
+}
+
+.flight-price {
+    font-size: 28px;
+    color: var(--accent-color);
+    font-weight: bold;
+    margin: 10px 0 20px;
+}
+
+.flight-route {
+    display: flex;
+    align-items: center;
+    margin: 15px 0;
+}
+
+.flight-route-airport {
+    flex: 1;
+}
+
+.flight-route-arrow {
+    padding: 0 15px;
+    color: var(--light-gray);
+}
+
+/* 列表样式 */
+/* Lists in detail view */
+.schedule-list, .reviews-list {
+    padding-left: 20px;
+    margin-top: 10px;
+}
+
+.schedule-list li, .reviews-list li {
+    margin-bottom: 8px;
+    position: relative;
+    padding-left: 20px;
+    list-style-type: none; /* Add this line to remove default bullets */
+}
+
+.schedule-list li::before {
+    content: "•";
+    color: var(--base-color);
+    position: absolute;
+    left: 0;
+    font-size: 1.2em;
+}
+
+/* ===== 表单样式 ===== */
+.form-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 15px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #ddd;
+    font-weight: 500;
+}
+
+.form-control {
+    width: 100%;
+    padding: 12px 15px;
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+    color: var(--white);
+    font-size: 16px;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--base-color);
+    box-shadow: 0 0 0 2px rgba(43, 95, 243, 0.3);
+}
+
+textarea.form-control {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.error-message {
+    color: var(--error-color);
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.input-error {
+    border-color: var(--error-color) !important;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+/* 提交按钮样式 */
+.btn-submit {
+    background-color: var(--base-color);
+    color: white;
+    font-size: 16px;
+    padding: 12px 30px;
+    border-radius: 25px;
+    font-weight: 600;
+    box-shadow: 0 4px 10px rgba(43, 95, 243, 0.3);
+}
+
+.btn-submit:hover {
+    background-color: #4272f5;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(43, 95, 243, 0.4);
+}
+
+.btn-submit:active {
+    transform: scale(0.98);
+}
+
+/* 清除和放弃按钮 */
+.btn-reset, .btn-discard {
+    background-color: var(--error-color);
+    color: white;
+    opacity: 0.9;
+}
+
+.btn-reset:hover, .btn-discard:hover {
+    background-color: #ff3939;
+    opacity: 1;
+}
+
+.btn-discard:focus {
+    outline: 2px solid var(--error-color);
+    outline-offset: 2px;
+}
+
+/* 成功消息 */
+.success-message {
+    background-color: rgba(76, 175, 80, 0.2);
+    color: var(--success-color);
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.success-message a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    background-color: var(--base-color);
+    padding: 5px 15px;
+    border-radius: 20px;
+    transition: all 0.3s;
+}
+
+.success-message a:hover {
+    background-color: #3a6af5;
+    transform: scale(1.05);
+}
+
+/* ===== 自动完成建议 ===== */
+#search-suggestions {
+    position: absolute;
+    background: #202020;
+    border-radius: 8px;
+    padding: 10px 0;
+    max-height: 300px;
+    overflow-y: auto;
+    z-index: 1000;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.5);
+    top: calc(100% + 5px);
+    left: 0;
+    width: 250px;
+    display: none;
+}
+
+.suggestion-item {
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.suggestion-item:hover {
+    background: rgba(43, 95, 243, 0.2);
+}
+
+/* ===== 模态框 ===== */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s;
+}
+
+.modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    background: #1c1c1c;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 500px;
+    padding: 25px;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+    transform: translateY(-20px);
+    transition: transform 0.3s;
+}
+
+.modal.active .modal-content {
+    transform: translateY(0);
+}
+
+.modal-header {
+    margin-bottom: 15px;
+}
+
+.modal-title {
+    margin: 0;
+    color: white;
+}
+
+.modal-body {
+    margin-bottom: 20px;
+    color: #b0b0b0;
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+/* 确认弹窗按钮样式 */
+.btn-cancel {
+    background-color: #555;
+}
+
+.btn-confirm {
+    background-color: var(--error-color);
+}
+
+/* 加载指示器 */
+.loading-text {
+    text-align: center;
+    color: var(--light-gray);
+    padding: 20px;
+}
+
+/* ===== 响应式设计 ===== */
+@media (max-width: 1024px) {
+    .flight-image-container {
+        flex: 0 0 380px;
+        height: 280px;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        padding: 15px;
+    }
+    
+    .nav-links {
+        margin: 10px 0;
+    }
+    
+    #search-form {
+        margin-top: 15px;
+        width: 100%;
+    }
+    
+    #search-input {
+        width: 100%;
+    }
+    
+    .flight-content {
+        flex-direction: column;
+    }
+    
+    .flight-image-container {
+        flex: 1 1 100%;
+        height: 250px;
+        margin-bottom: 20px;
+    }
+    
+    .search-item {
+        flex-direction: column;
+    }
+    
+    .search-image-container {
+        width: 100%;
+        margin-bottom: 15px;
+        margin-right: 0;
+    }
+    
+    .form-actions {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .form-actions button {
+        width: 100%;
+        margin-left: 0;
+    }
+    
+    .btn-edit {
+        width: 100%;
+        justify-content: center;
+        padding: 12px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .flight-image-container {
+        height: 200px;
+    }
+    
+    .btn-edit {
+        font-size: 14px;
+    }
+}

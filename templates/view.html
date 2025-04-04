@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+
+{% block title %}{{ flight.title }} - Flight Finder{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="flight-detail">
+        <!-- Flight header with title and actions -->
+        <div class="flight-header">
+            <div class="flight-title">
+                <h1>{{ flight.title }}</h1>
+                <p class="flight-year">{{ flight.year }}</p>
+            </div>
+            <div class="flight-actions">
+                <!-- Edit button made more noticeable -->
+                <a href="{{ url_for('edit_form', id=flight.id) }}" class="btn-edit">Edit Flight</a>
+            </div>
+        </div>
+
+        <div class="flight-content">
+            <!-- Changed from flight-image-fixed to flight-image-container -->
+            <div class="flight-image-container">
+                <img src="{{ flight.image }}" alt="{{ flight.title }} - Flight from {{ flight.departure }} to {{ flight.arrival }}">
+            </div>
+
+            <!-- Flight information section -->
+            <div class="flight-info-detail">
+                <!-- First conceptual group: Essential Flight Info -->
+                <div class="detail-group">
+                    <h3>Flight Information</h3>
+                    <p class="flight-price">${{ flight.price }}</p>
+                    <div class="detail-item">
+                        <span class="detail-label">Airline:</span>
+                        <span class="detail-value">{{ flight.airline }}</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Flight Time:</span>
+                        <span class="detail-value">{{ flight.flight_time }}</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Departure:</span>
+                        <span class="detail-value">{{ flight.departure }}</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Arrival:</span>
+                        <span class="detail-value">{{ flight.arrival }}</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Baggage:</span>
+                        <span class="detail-value">{{ flight.baggage_policy }}</span>
+                    </div>
+                </div>
+
+                <!-- Second conceptual group: Schedule & Additional Info -->
+                <div class="detail-group">
+                    <h3>Schedule</h3>
+                    <ul class="schedule-list">
+                        {% for day in flight.schedule %}
+                            <li>{{ day }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+                <!-- Third conceptual group: Reviews -->
+                <div class="detail-group">
+                    <h3>Flight Summary</h3>
+                    <p>{{ flight.summary }}</p>
+                </div>
+
+                <div class="detail-group">
+                    <h3>Passenger Reviews</h3>
+                    <ul class="reviews-list">
+                        {% for review in flight.reviews %}
+                            <li>{{ review }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

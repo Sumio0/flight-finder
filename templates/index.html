@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}Flight Finder - Find Your Perfect Flight{% endblock %}
+
+{% block content %}
+<div class="container">
+    <!-- Purpose and audience section -->
+    <div class="hero-section">
+        <h1>Find Your Perfect Flight</h1>
+        <p>Discover direct flights between China and the US with our comprehensive flight finder. Compare airlines, prices, and schedules to plan your international travel.</p>
+        <a href="/search?q=" class="btn">Browse All Flights</a>
+    </div>
+    
+    <!-- Featured flights section -->
+    <h2 class="featured-title">Popular Flights</h2>
+    <div class="row" id="popular-flights">
+        <!-- Flights will be loaded dynamically from script.js -->
+        <p class="loading-text">Loading popular flights...</p>
+    </div>
+</div>
+{% endblock %}
